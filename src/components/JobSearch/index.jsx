@@ -13,9 +13,11 @@ const JobSearch = ({setQuery, setHeader, setViewButton, checkBoxUrl, setCheckBox
 
 
     const constructQuery = () => {
+
         setQuery('jobs?search='+input+filterBarSelected)
         setHeader('Search results')
         setViewButton('View most recent jobs ->')
+
     }
     const [checkBoxValue, setCheckBoxValue] = useState(
             {'Full time': false,
@@ -23,25 +25,23 @@ const JobSearch = ({setQuery, setHeader, setViewButton, checkBoxUrl, setCheckBox
                 'Contract': false
             }
         )
+    console.log(filterBarSelected)
     console.log(checkBoxValue)
+    const checkBoxValueURL = () => {
+        setFilterBarSelected('')
+        checkBoxValue['Full time'] === true && setFilterBarSelected(filterBarSelected + '&type[]=Full time')
+        checkBoxValue['Part time'] === true && setFilterBarSelected(filterBarSelected + '&type[]=Part time')
+        checkBoxValue['Contract'] === true && setFilterBarSelected(filterBarSelected + '&type[]=Contract')
 
-        if (checkBoxValue['Contract'] && checkBoxValue["Full time"] && checkBoxValue['Part time']) {
-            setFilterBarSelected('&type[]=Contract&type[]=Full time&type[]=Part time')
-        } else if (checkBoxValue['Contract'] && checkBoxValue["Full time"]){
-            setFilterBarSelected('&type[]=Contract&type[]=Full time')
-        } else if (checkBoxValue["Full time"] && checkBoxValue['Part time']) {
-            setFilterBarSelected('&type[]=Full time&type[]=Part time')
-        } else if (checkBoxValue['Contract'] && checkBoxValue['Part time']) {
-            setFilterBarSelected('&type[]=Contract&type[]=Part time')
-        } else if (checkBoxValue['Contract']) {
-            setFilterBarSelected('&type[]=Contract')
-        } else if (checkBoxValue['Full time']) {
-            setFilterBarSelected('&type[]=Full time')
-        } else if (checkBoxValue['Part time']) {
-            setFilterBarSelected('&type[]=Part time')
-        } else if (!(checkBoxValue['Contract'] && checkBoxValue["Full time"] && checkBoxValue['Part time'])) {
-            setFilterBarSelected('')
-        }
+    }
+
+    useEffect(() => {
+        checkBoxValueURL()
+    }, [checkBoxValue]);
+
+    const searchClickAction = () => {
+        constructQuery()
+    }
 
 
 
@@ -64,7 +64,7 @@ const JobSearch = ({setQuery, setHeader, setViewButton, checkBoxUrl, setCheckBox
 
 
                 </div>
-                <button className='btn btn-primary fs-4 py-2' onClick={constructQuery}>Search</button>
+                <button className='btn btn-primary fs-4 py-2' onClick={searchClickAction}>Search</button>
             </div>
         </div>
     )

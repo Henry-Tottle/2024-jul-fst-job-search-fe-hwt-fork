@@ -6,8 +6,15 @@ const Header = ({header, setHeader, viewButton, setQuery, setViewButton}) => {
         setViewButton('View all jobs ->')
     }
 
+    const viewAllJobs = ()=>{
+        setHeader('All jobs')
+        setQuery('jobs')
+        setViewButton('View most recent jobs ->')
+    }
+
     const handleClick = () => {
         viewButton === 'View most recent jobs ->' && returnToRecent()
+        viewButton === 'View all jobs ->' && viewAllJobs()
     }
 
     return (

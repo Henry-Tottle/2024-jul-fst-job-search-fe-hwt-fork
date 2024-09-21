@@ -4,7 +4,7 @@ const SkillBox = ({setHeader, setQuery, setViewButton}) => {
 
     const clickSkill = (id) => {
         setHeader('Search results')
-        setQuery('http://0.0.0.0:8080/jobs?skill='+id)
+        setQuery('jobs?skill='+id)
         setViewButton('View most recent jobs ->')
     }
 
@@ -24,7 +24,6 @@ const SkillBox = ({setHeader, setQuery, setViewButton}) => {
         <>
         {
             skills.map((item, index) => {
-                    console.log(item)
                     return (
                         <div key={index} onClick={() => clickSkill(item.id)}
                              className='border border-black pb-2 col-5 col-md-3 p-7 px-md-7 me-4 mb-3 me-md-0'>

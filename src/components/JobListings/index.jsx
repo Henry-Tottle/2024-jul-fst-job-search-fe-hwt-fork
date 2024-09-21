@@ -16,9 +16,7 @@ const JobListings = ({
                          viewButton,
                          setViewButton
                      }) => {
-    console.log(skillQuery)
-    console.log(typeQuery)
-    console.log(query)
+console.log(query)
 
     const [urlBuilder, setUrlBuilder] = useState('jobs/recent')
 
@@ -55,8 +53,6 @@ const JobListings = ({
 
     }, [navBarUrlSuffix, skillQuery, typeQuery, query]);
 
-    console.log('http://0.0.0.0:8080/' + urlBuilder)
-
     useEffect(() => {
         if (navBarUrlSuffix.includes('Full time')) {
             setHeaderText('Full time jobs')
@@ -76,7 +72,7 @@ const JobListings = ({
             const data = await response.json()
             setJobInfo(data)
         }
-        getJobInfo()
+         getJobInfo()
     }, [urlBuilder]);
 
 
