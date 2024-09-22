@@ -4,7 +4,7 @@ const SkillBox = ({setHeader, setQuery, setViewButton}) => {
 
     const clickSkill = (id) => {
         setHeader('Search results')
-        setQuery('jobs?skill='+id)
+        setQuery('http://0.0.0.0:8080/jobs?skill='+id)
         setViewButton('View most recent jobs ->')
     }
 

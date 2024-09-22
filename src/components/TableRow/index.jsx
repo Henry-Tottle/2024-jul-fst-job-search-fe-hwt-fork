@@ -3,7 +3,7 @@ import TypeBadge from "../TypeBadge/index.jsx";
 import Salary from "../Salary/index.jsx";
 import SkillsBadges from "../SkillsBadges/index.jsx";
 
-const TableRow = ({jobTitle, company, logo, contract, salary, skills, setSkillQuery, setTypeQuery}) => {
+const TableRow = ({jobTitle, company, logo, contract, salary, skills, setSkillQuery, setTypeQuery, jobIdSelector, jobId}) => {
     return (
 
         <tr onClick={() => {jobIdSelector(jobId)}}
