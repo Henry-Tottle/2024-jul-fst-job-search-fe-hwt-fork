@@ -6,6 +6,7 @@ const SkillsBadges = ({itemSkills, setSkillQuery}) => {
         <>
             {
                 itemSkills?.map((skill) => {
+                    console.log(skill.id)
 
                     const constructSkillQuery = () => {
                         setSkillQuery(`?skill=` + skill.id)

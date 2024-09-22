@@ -73,7 +73,7 @@ console.log(query)
             setJobInfo(data)
         }
          getJobInfo()
-    }, [urlBuilder]);
+    }, [urlBuilder, skillQuery]);
 
 
     return (

@@ -6,10 +6,11 @@ import SkillsBadges from "../SkillsBadges/index.jsx";
 const TableRow = ({jobTitle, company, logo, contract, salary, skills, setSkillQuery, setTypeQuery, jobIdSelector, jobId}) => {
     return (
 
-        <tr onClick={() => {jobIdSelector(jobId)}}
-            data-bs-toggle='modal'
-            data-bs-target='#jobDescription'>
-            <td className='p-0'>
+        <tr>
+            <td onClick={() => {jobIdSelector(jobId)}}
+                data-bs-toggle='modal'
+                data-bs-target='#jobDescription'
+                className='p-0'>
                 <Company logo={logo} jobTitle={jobTitle} companyName={company}/>
             </td>
             <td className='p-0'>
@@ -19,7 +20,7 @@ const TableRow = ({jobTitle, company, logo, contract, salary, skills, setSkillQu
                 <Salary salary={salary}/>
             </td>
             <td className='fs-6 p-0'>
-                <SkillsBadges itemSkills={skills}/>
+                <SkillsBadges setSkillQuery={setSkillQuery} itemSkills={skills}/>
             </td>
         </tr>
     )

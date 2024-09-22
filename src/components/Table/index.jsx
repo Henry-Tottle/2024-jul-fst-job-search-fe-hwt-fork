@@ -4,7 +4,7 @@ import {useState} from "react";
 
 const Table = ({jobInfo, skillQuery, setSkillQuery, setUrlSuffix, typeQuery, setTypeQuery}) => {
     const [modalID, setModalID] = useState(1)
-
+console.log('skill query is: ' + skillQuery)
     return (
         <div>
             <table className='table table-dark table-striped table-sm col-12'>
@@ -31,6 +31,7 @@ const Table = ({jobInfo, skillQuery, setSkillQuery, setUrlSuffix, typeQuery, set
                                     skills={item.skills}
                                     logo={item.logo}
                                     setSkillQuery={setSkillQuery}
+                                    skilQuery={{skillQuery}}
                                     setTypeQuery={setTypeQuery}
 
                                 />
