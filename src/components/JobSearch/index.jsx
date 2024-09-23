@@ -25,10 +25,8 @@ const JobSearch = ({setQuery, setHeader, setViewButton, checkBoxUrl, setCheckBox
                 'Contract': false
             }
         )
-    console.log(filterBarSelected)
-    console.log(checkBoxValue)
+
     const checkBoxValueURL = () => {
-        setFilterBarSelected('')
         checkBoxValue['Full time'] === true && setFilterBarSelected(filterBarSelected + '&type[]=Full time')
         checkBoxValue['Part time'] === true && setFilterBarSelected(filterBarSelected + '&type[]=Part time')
         checkBoxValue['Contract'] === true && setFilterBarSelected(filterBarSelected + '&type[]=Contract')
@@ -36,6 +34,8 @@ const JobSearch = ({setQuery, setHeader, setViewButton, checkBoxUrl, setCheckBox
     }
 
     useEffect(() => {
+        setFilterBarSelected('')
+
         checkBoxValueURL()
     }, [checkBoxValue]);
 
